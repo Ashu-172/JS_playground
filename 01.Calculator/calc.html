@@ -12,12 +12,12 @@
 
     <table border="1" align="center">
         <tr height='40px' align="right">
-            <td colspan="4" id="result">0</td>
+            <td colspan="4"><input type='textbox'  id='result' height='40px' width='200px'  value='0'></td>
         </tr>
         <tr height='40px' align="center">
-            <td width='40px' id="clear">AC</td>
-            <td width='40px' id="sign" >+/-</td>
-            <td width='40px' id="percent" >%</td>
+            <td width='40px' id="ac">AC</td>
+            <td width='40px' id="rightP" >(</td>
+            <td width='40px' id="leftP" >)</td>
             <td width='40px' id="div">/</td>
         </tr>
         <tr height='40px' align="center">
@@ -46,10 +46,19 @@
     </table>
 
     <script>
+        function printDigit(e){
+            let result = document.getElementById("result");
+            if(result.value == '0')
+                result.value = e.target.textContent;
+            else
+                result.value = result.value + e.target.textContent;
+        }
         function printSymbol(e){
             let result = document.getElementById("result");
-            result.textContent = result.textContent + e.target.textContent;
+            let len = result.value.length;
+            result.value = result.value + e.target.textContent;
         }
+        let result = document.getElementById("result");
         let num1 = document.getElementById("one");
         let num2 = document.getElementById("two");
         let num3 = document.getElementById("three");
@@ -60,20 +69,37 @@
         let num8 = document.getElementById("eight");
         let num9 = document.getElementById("nine");
         let num0 = document.getElementById("zero");
+        let sub = document.getElementById("sub");
+        let add = document.getElementById("add");
+        let mul = document.getElementById("mul");
+        let div = document.getElementById("div");
+        let decimal = document.getElementById("decimal");
+        let rightP = document.getElementById("rightP");
+        let leftP = document.getElementById("leftP");
+        let clr = document.getElementById("ac");
+        let equal = document.getElementById("equal");
 
-        num0.addEventListener("click", printSymbol);
-        num1.addEventListener("click", printSymbol);
-        num2.addEventListener("click", printSymbol);
-        num3.addEventListener("click", printSymbol);
-        num4.addEventListener("click", printSymbol);
-        num5.addEventListener("click", printSymbol);
-        num6.addEventListener("click", printSymbol);
-        num7.addEventListener("click", printSymbol);
-        num8.addEventListener("click", printSymbol);
-        num9.addEventListener("click", printSymbol);
+        num0.addEventListener("click", printDigit);
+        num1.addEventListener("click", printDigit);
+        num2.addEventListener("click", printDigit);
+        num3.addEventListener("click", printDigit);
+        num4.addEventListener("click", printDigit);
+        num5.addEventListener("click", printDigit);
+        num6.addEventListener("click", printDigit); 
+        num7.addEventListener("click", printDigit);
+        num8.addEventListener("click", printDigit);
+        num9.addEventListener("click", printDigit);
+        add.addEventListener("click", printSymbol);
+        sub.addEventListener("click", printSymbol);
+        mul.addEventListener("click", printSymbol);
+        div.addEventListener("click", printSymbol);
+        rightP.addEventListener("click", printSymbol);
+        leftP.addEventListener("click", printSymbol);
+        decimal.addEventListener("click", printSymbol);
+        clr.addEventListener("click", 
+            () => document.getElementById("result").value = '0');
 
-
-
+        equal.addEventListener("click", e => result.value = eval(result.value));
 
     </script>
 </body>
