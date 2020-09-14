@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>This is My Calculator..</h1>
+
+    <table border="1" align="center">
+        <tr height='40px' align="right">
+            <td colspan="4" id="result">0</td>
+        </tr>
+        <tr height='40px' align="center">
+            <td width='40px' id="clear">AC</td>
+            <td width='40px' id="sign" >+/-</td>
+            <td width='40px' id="percent" >%</td>
+            <td width='40px' id="div">/</td>
+        </tr>
+        <tr height='40px' align="center">
+            <td id="seven">7</td>
+            <td id="eight">8</td>
+            <td id="nine">9</td>
+            <td id="mul">*</td>
+        </tr>
+        <tr height='40px' align="center">
+            <td id="four">4</td>
+            <td id="five">5</td>
+            <td id="six">6</td>
+            <td id="sub">-</td>
+        </tr>
+        <tr height='40px' align="center">
+            <td id="one">1</td>
+            <td id="two">2</td>
+            <td id="three">3</td>
+            <td id="add">+</td>
+        </tr>
+        <tr height='40px' align="center">
+            <td colspan="2" id="zero">0</td>
+            <td id="decimal">.</td>
+            <td id="equal">=</td>
+        </tr>
+    </table>
+
+    <script>
+        function printSymbol(e){
+            let result = document.getElementById("result");
+            result.textContent = result.textContent + e.target.textContent;
+        }
+        let num1 = document.getElementById("one");
+        let num2 = document.getElementById("two");
+        let num3 = document.getElementById("three");
+        let num4 = document.getElementById("four");
+        let num5 = document.getElementById("five");
+        let num6 = document.getElementById("six");
+        let num7 = document.getElementById("seven");
+        let num8 = document.getElementById("eight");
+        let num9 = document.getElementById("nine");
+        let num0 = document.getElementById("zero");
+
+        num0.addEventListener("click", printSymbol);
+        num1.addEventListener("click", printSymbol);
+        num2.addEventListener("click", printSymbol);
+        num3.addEventListener("click", printSymbol);
+        num4.addEventListener("click", printSymbol);
+        num5.addEventListener("click", printSymbol);
+        num6.addEventListener("click", printSymbol);
+        num7.addEventListener("click", printSymbol);
+        num8.addEventListener("click", printSymbol);
+        num9.addEventListener("click", printSymbol);
+
+
+
+
+    </script>
+</body>
+
+</html>
