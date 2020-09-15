@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -15,87 +19,53 @@
             <td colspan="4"><input type='textbox'  id='result' height='40px' width='200px'  value='0'></td>
         </tr>
         <tr height='40px' align="center">
-            <td width='40px' id="ac">AC</td>
-            <td width='40px' id="rightP" >(</td>
-            <td width='40px' id="leftP" >)</td>
-            <td width='40px' id="div">/</td>
+            <td width='40px' id="ac" >AC</td>
+            <td width='40px' id="rightP" class="symbol">(</td>
+            <td width='40px' id="leftP" class="symbol">)</td>
+            <td width='40px' id="div" class="symbol">/</td>
         </tr>
         <tr height='40px' align="center">
-            <td id="seven">7</td>
-            <td id="eight">8</td>
-            <td id="nine">9</td>
-            <td id="mul">*</td>
+            <td id="seven" class="symbol">7</td>
+            <td id="eight" class="symbol">8</td>
+            <td id="nine" class="symbol">9</td>
+            <td id="mul" class="symbol">*</td>
         </tr>
         <tr height='40px' align="center">
-            <td id="four">4</td>
-            <td id="five">5</td>
-            <td id="six">6</td>
-            <td id="sub">-</td>
+            <td id="four" class="symbol">4</td>
+            <td id="five" class="symbol">5</td>
+            <td id="six" class="symbol">6</td>
+            <td id="sub" class="symbol">-</td>
         </tr>
         <tr height='40px' align="center">
-            <td id="one">1</td>
-            <td id="two">2</td>
-            <td id="three">3</td>
-            <td id="add">+</td>
+            <td id="one" class="symbol">1</td>
+            <td id="two" class="symbol">2</td>
+            <td id="three" class="symbol">3</td>
+            <td id="add"class="symbol">+</td>
         </tr>
         <tr height='40px' align="center">
-            <td colspan="2" id="zero">0</td>
-            <td id="decimal">.</td>
+            <td colspan="2" id="zero" class="symbol">0</td>
+            <td id="decimal" class="symbol">.</td>
             <td id="equal">=</td>
         </tr>
     </table>
 
     <script>
-        function printDigit(e){
+        function printSymbol(e){
             let result = document.getElementById("result");
             if(result.value == '0')
                 result.value = e.target.textContent;
             else
                 result.value = result.value + e.target.textContent;
         }
-        function printSymbol(e){
-            let result = document.getElementById("result");
-            let len = result.value.length;
-            result.value = result.value + e.target.textContent;
-        }
+        let symbols = document.getElementsByClassName("symbol");
         let result = document.getElementById("result");
-        let num1 = document.getElementById("one");
-        let num2 = document.getElementById("two");
-        let num3 = document.getElementById("three");
-        let num4 = document.getElementById("four");
-        let num5 = document.getElementById("five");
-        let num6 = document.getElementById("six");
-        let num7 = document.getElementById("seven");
-        let num8 = document.getElementById("eight");
-        let num9 = document.getElementById("nine");
-        let num0 = document.getElementById("zero");
-        let sub = document.getElementById("sub");
-        let add = document.getElementById("add");
-        let mul = document.getElementById("mul");
-        let div = document.getElementById("div");
-        let decimal = document.getElementById("decimal");
-        let rightP = document.getElementById("rightP");
-        let leftP = document.getElementById("leftP");
         let clr = document.getElementById("ac");
         let equal = document.getElementById("equal");
+       
+        for(let i=0; i < symbols.length; i++){
+            symbols[i].addEventListener("click", printSymbol);
+        }
 
-        num0.addEventListener("click", printDigit);
-        num1.addEventListener("click", printDigit);
-        num2.addEventListener("click", printDigit);
-        num3.addEventListener("click", printDigit);
-        num4.addEventListener("click", printDigit);
-        num5.addEventListener("click", printDigit);
-        num6.addEventListener("click", printDigit); 
-        num7.addEventListener("click", printDigit);
-        num8.addEventListener("click", printDigit);
-        num9.addEventListener("click", printDigit);
-        add.addEventListener("click", printSymbol);
-        sub.addEventListener("click", printSymbol);
-        mul.addEventListener("click", printSymbol);
-        div.addEventListener("click", printSymbol);
-        rightP.addEventListener("click", printSymbol);
-        leftP.addEventListener("click", printSymbol);
-        decimal.addEventListener("click", printSymbol);
         clr.addEventListener("click", 
             () => document.getElementById("result").value = '0');
 
