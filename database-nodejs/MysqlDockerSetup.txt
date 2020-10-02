@@ -1,0 +1,38 @@
+
+
+1. install mysql docker image
+
+    docker run --name ms  -p 3306:3306 (port forwarding from host:3306 to docker container 3306) -e MYSQL_ROOT_PASSWORD=password mysql     (aquire terminal)
+    
+    docker run -d --name ms -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password mysql  (deattach from terminal)
+
+    --name  
+        => name of mysql container
+
+    -p  <port1>:<port2>
+        => port1 is the host port
+        => port2 is the docker container port
+        => port2  of docker container is mapped to port1 of host machine
+            if will connect from localhost to localhost:3306 then requests will be mapped to 3306 of docker
+            if we want to connect from remote server, we can make connection to <Host IP>:3306. requests will be resent to 3306 of docker container
+
+
+2. Check if it is running
+
+    docker ps
+
+3. if docker image installed and mysql is not running currently, to start mysql 
+
+    docker start ms (docker container name)
+
+4. To start a interactive mysql terminal
+
+    a. get interactive terminal to docker container
+
+        docker exec -it ms bash     
+    
+    2. connect to mysql 
+
+        mysql -u root -p
+
+
